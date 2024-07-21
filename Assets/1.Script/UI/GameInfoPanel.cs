@@ -6,9 +6,11 @@ using TMPro;
 public class GameInfoPanel : MonoBehaviour
 {
     public TMP_Text yearText;
+    public TMP_Text moneyText;
 
     void Update()
     {
-        yearText.text = $"{GameManager.instance.currentYear}-Year";
+        yearText.text = $"Year {GameManager.instance.currentYear}";
+        moneyText.text = $"{GameManager.instance.money} Money";
     }
 }
