@@ -41,5 +41,53 @@ public class UpgradeTechButton : MonoBehaviour
 
     }
 
+    //public RectTransform infoPositionTr;
+    public void EnterPointer()
+    {
+        //TechInfoPanel.instance.transform.position = infoPositionTr.position;
+        if (techType == TechType.TreePlanting ||
+                techType == TechType.WasteSorting ||
+                techType == TechType.ForestReserve ||
+                techType == TechType.AirPurification ||
+                techType == TechType.RenewableEnergy ||
+                techType == TechType.UrbanGreenery ||
+                techType == TechType.CarbonNeutral)
+        {
+            NatureTechInfoPanel.instance.OpenTechInfo(techType);
+        }
+        else if (techType == TechType.IncomeIncrease ||
+                 techType == TechType.HousingImprovement ||
+                 techType == TechType.HighSpeedInternet ||
+                 techType == TechType.CommercialDistrict ||
+                 techType == TechType.PublicTransport ||
+                 techType == TechType.HealthEducation ||
+                 techType == TechType.AdvancedResearch)
+        {
+            HumanTechInfoPanel.instance.OpenTechInfo(techType);
+        }
+    }
+    public void ExitPointer()
+    {
+        if (techType == TechType.TreePlanting ||
+           techType == TechType.WasteSorting ||
+           techType == TechType.ForestReserve ||
+           techType == TechType.AirPurification ||
+           techType == TechType.RenewableEnergy ||
+           techType == TechType.UrbanGreenery ||
+           techType == TechType.CarbonNeutral)
+        {
+            NatureTechInfoPanel.instance.gameObject.SetActive(false);
+        }
+        else if (techType == TechType.IncomeIncrease ||
+                 techType == TechType.HousingImprovement ||
+                 techType == TechType.HighSpeedInternet ||
+                 techType == TechType.CommercialDistrict ||
+                 techType == TechType.PublicTransport ||
+                 techType == TechType.HealthEducation ||
+                 techType == TechType.AdvancedResearch)
+        {
+            HumanTechInfoPanel.instance.gameObject.SetActive(false);
+        }
+    }
 }
 

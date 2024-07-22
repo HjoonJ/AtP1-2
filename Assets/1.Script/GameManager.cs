@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -34,18 +35,41 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] int techIndex = 0;
 
+    public OpenTechInfo[] natureOpenTechInfos;
+    public OpenTechInfo[] humanOpenTechInfos;
+
     void Start()
     {
         StartGame();
+
         
     }
     public void StartGame()
     {
+        for (int i = 0; i < natureOpenTechInfos.Length; i++)
+        { 
+            foreach(Button btn in natureOpenTechInfos[i].techButtons)
+            {
+                btn.interactable = false;
+            }
+        }
+        for (int i = 0; i < humanOpenTechInfos.Length; i++)
+        {
+            foreach (Button btn in humanOpenTechInfos[i].techButtons)
+            {
+                btn.interactable = false;
+            }
+        }
+
         currentYear = 0;
         curMoneyIncreaseTime = initMoneyIncreaseTime;
         curPollutionPerTime = initPollutionPerTime;
         curHappinessPerTime = initHappinessPerTime;
         money = 10;
+
+        techIndex = 0;
+        OpenTech(techIndex);
+
         StartCoroutine(CoIncreasePollution());
         StartCoroutine(CoDecreaseHappiness());
     }
@@ -131,21 +155,22 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        //if (Input.GetKeyDown(KeyCode.A))
+        //{
+        //    AddPollution(5);
+        //}
+        //if (Input.GetKeyDown(KeyCode.B))
+        //{
+        //    AddPollution(-5);
+        //}
+        //if (Input.GetKeyDown(KeyCode.C))
+        //{
+        //    AddHappiness(5);
+        //}
+        if (Input.GetKeyDown(KeyCode.D)) // 시간 빨리 감기
         {
-            AddPollution(5);
-        }
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            AddPollution(-5);
-        }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            AddHappiness(5);
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            AddHappiness(-5);
+            //AddHappiness(-5);
+            Time.timeScale += 1;
         }
 
 
@@ -247,6 +272,14 @@ public class GameManager : MonoBehaviour
 
     void OpenTech(int index)
     {
+        for (int i = 0; natureOpenTechInfos[index].techButtons.Length > i; i++)
+        {
+            natureOpenTechInfos[index].techButtons[i].interactable = true;
+        }
+        for (int i = 0; humanOpenTechInfos[index].techButtons.Length > i; i++)
+        {
+            humanOpenTechInfos[index].techButtons[i].interactable = true;
+        }
 
     }
 
@@ -301,4 +334,10 @@ public enum ParameterType
 {
     Pollution,
     Happiness
+}
+
+[System.Serializable]
+public class OpenTechInfo
+{
+    public Button[] techButtons;
 }

@@ -85,6 +85,10 @@ public class TechState
     public int maxLv;
     public int price;
     public TechEffect[] techEffects;
+    public string info;
+
+    public string Title;
+
 
     public TechEffect GetTechEffect(TechEffectType techEffectType)
     {
