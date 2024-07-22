@@ -71,9 +71,47 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public bool SpendMoney(int amount)
+    {
+        if (money >= amount)
+        {
+            money -= amount;
+            return true;
+        }
+        return false;
+    }
+
     public void CompleteGame()
     {
+        Debug.Log("Game Complete!");
+        DetermineEnding();
+    }
 
+    void DetermineEnding()
+    {
+        bool isPollutionLow = pollution <= 50;
+        bool isHappinessHigh = happiness >= 50;
+
+        if (isPollutionLow && !isHappinessHigh)
+        {
+            Debug.Log("Ending 1: Low Pollution, Low Happiness");
+            // Ending 1 logic
+        }
+        else if (isPollutionLow && isHappinessHigh)
+        {
+            Debug.Log("Ending 2: Low Pollution, High Happiness");
+            // Ending 2 logic
+        }
+        else if (!isPollutionLow && !isHappinessHigh)
+        {
+            Debug.Log("Ending 3: High Pollution, Low Happiness");
+            // Ending 3 logic
+        }
+        else if (!isPollutionLow && isHappinessHigh)
+        {
+            Debug.Log("Ending 4: High Pollution, High Happiness");
+            // Ending 4 logic
+        }
     }
 
     public float GetParameterValue(ParameterType type)
@@ -246,8 +284,15 @@ public class GameManager : MonoBehaviour
     public void GameOver(ParameterType parameterType)
     {
         // GameOver Ending1 = over Pollution
-
+        if (parameterType == ParameterType.Pollution)
+        {
+            //pollutionGameOverPanel.SetActive(true);
+        }
         // GameOver Ending1 = under Happiness
+        else if (parameterType == ParameterType.Happiness)
+        {
+            //happinessGameOverPanel.SetActive(true);
+        }
     }
 }
 

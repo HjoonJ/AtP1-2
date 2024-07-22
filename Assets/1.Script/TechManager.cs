@@ -43,13 +43,22 @@ public class TechManager : MonoBehaviour
         TechState techState = System.Array.Find(techStates, t => t.techType == techType);
         if (techState != null)
         {
-            techState.lv++;
-            GameManager.instance.UpgradeTech(techType);
+            if (GameManager.instance.money >= techState.price)
+            {
+                GameManager.instance.SpendMoney(techState.price);
+                techState.lv++;
+                GameManager.instance.UpgradeTech(techType);
 
-            World[] worlds = FindObjectsOfType<World>();
-            worlds[0].CheckWorld();
-            worlds[1].CheckWorld();
+                World[] worlds = FindObjectsOfType<World>();
+                worlds[0].CheckWorld();
+                worlds[1].CheckWorld();
+            }
+            else
+            {
+                Debug.Log("Not enough money!");
+            }
         }
+
     }
 
     public TechState GetTechState(TechType type)
@@ -111,7 +120,6 @@ public enum TechType
     ForestReserve,
     AirPurification,
     RenewableEnergy,
-    MarineProtection,
     UrbanGreenery,
     CarbonNeutral,
 
@@ -121,7 +129,6 @@ public enum TechType
     CommercialDistrict,
     PublicTransport,
     HealthEducation,
-    CulturalLeisure,
     AdvancedResearch
 
 }

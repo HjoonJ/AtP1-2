@@ -206,7 +206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6829040762543834997, guid: 8135f2cc1068099408e4c04b6b461bb9, type: 3}
       propertyPath: techType
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7747365768732739503, guid: 8135f2cc1068099408e4c04b6b461bb9, type: 3}
       propertyPath: m_Pivot.x
@@ -1215,7 +1215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6829040762543834997, guid: 8135f2cc1068099408e4c04b6b461bb9, type: 3}
       propertyPath: techType
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7747365768732739503, guid: 8135f2cc1068099408e4c04b6b461bb9, type: 3}
       propertyPath: m_Pivot.x
@@ -1753,7 +1753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6829040762543834997, guid: 8135f2cc1068099408e4c04b6b461bb9, type: 3}
       propertyPath: techType
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7747365768732739503, guid: 8135f2cc1068099408e4c04b6b461bb9, type: 3}
       propertyPath: m_Pivot.x
@@ -1979,7 +1979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6829040762543834997, guid: 8135f2cc1068099408e4c04b6b461bb9, type: 3}
       propertyPath: techType
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7747365768732739503, guid: 8135f2cc1068099408e4c04b6b461bb9, type: 3}
       propertyPath: m_Pivot.x
@@ -2411,7 +2411,7 @@ MonoBehaviour:
       - -3
       - -3
       - -3
-  - techType: 6
+  - techType: 5
     lv: 0
     maxLv: 3
     price: 40
@@ -2426,7 +2426,7 @@ MonoBehaviour:
       - -5
       - -5
       - -5
-  - techType: 7
+  - techType: 6
     lv: 0
     maxLv: 3
     price: 50
@@ -2441,7 +2441,7 @@ MonoBehaviour:
       - -5
       - -5
       - -5
-  - techType: 8
+  - techType: 7
     lv: 0
     maxLv: 5
     price: 10
@@ -2467,7 +2467,7 @@ MonoBehaviour:
       - 3
       - 3
       - 3
-  - techType: 9
+  - techType: 8
     lv: 0
     maxLv: 5
     price: 20
@@ -2486,7 +2486,7 @@ MonoBehaviour:
       - 3
       - 3
       - 3
-  - techType: 10
+  - techType: 9
     lv: 0
     maxLv: 5
     price: 20
@@ -2512,7 +2512,7 @@ MonoBehaviour:
       - 5
       - 5
       - 5
-  - techType: 11
+  - techType: 10
     lv: 0
     maxLv: 3
     price: 30
@@ -2532,7 +2532,7 @@ MonoBehaviour:
       - 5
       - 5
       - 5
-  - techType: 12
+  - techType: 11
     lv: 0
     maxLv: 3
     price: 30
@@ -2547,7 +2547,7 @@ MonoBehaviour:
       - 3
       - 3
       - 3
-  - techType: 13
+  - techType: 12
     lv: 0
     maxLv: 3
     price: 40
@@ -2562,7 +2562,7 @@ MonoBehaviour:
       - 5
       - 5
       - 5
-  - techType: 15
+  - techType: 13
     lv: 0
     maxLv: 3
     price: 50
@@ -2614,7 +2614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6829040762543834997, guid: 8135f2cc1068099408e4c04b6b461bb9, type: 3}
       propertyPath: techType
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6829040762543834997, guid: 8135f2cc1068099408e4c04b6b461bb9, type: 3}
       propertyPath: techState.price
@@ -3148,7 +3148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6829040762543834997, guid: 8135f2cc1068099408e4c04b6b461bb9, type: 3}
       propertyPath: techType
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7747365768732739503, guid: 8135f2cc1068099408e4c04b6b461bb9, type: 3}
       propertyPath: m_Pivot.x
@@ -3719,7 +3719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6829040762543834997, guid: 8135f2cc1068099408e4c04b6b461bb9, type: 3}
       propertyPath: techType
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7747365768732739503, guid: 8135f2cc1068099408e4c04b6b461bb9, type: 3}
       propertyPath: m_Pivot.x
@@ -4288,7 +4288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6829040762543834997, guid: 8135f2cc1068099408e4c04b6b461bb9, type: 3}
       propertyPath: techType
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7747365768732739503, guid: 8135f2cc1068099408e4c04b6b461bb9, type: 3}
       propertyPath: m_Pivot.x
@@ -4614,7 +4614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6829040762543834997, guid: 8135f2cc1068099408e4c04b6b461bb9, type: 3}
       propertyPath: techType
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7747365768732739503, guid: 8135f2cc1068099408e4c04b6b461bb9, type: 3}
       propertyPath: m_Pivot.x

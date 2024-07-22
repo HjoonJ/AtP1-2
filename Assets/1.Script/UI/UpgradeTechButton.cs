@@ -32,11 +32,12 @@ public class UpgradeTechButton : MonoBehaviour
     {
         if (techState.lv >= techState.maxLv)
             return;
-        
-        Debug.Log($"{techType} Improved");
 
-        TechManager.instance.UpgradeTech( techType );
-        UpdateButton();
+
+            Debug.Log($"{techType} Improved");
+            TechManager.instance.UpgradeTech(techType);
+            UpdateButton();
+ 
 
     }
 
