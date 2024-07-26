@@ -16,6 +16,8 @@ public class WorldTimeBar : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.playing == false)
+            return;
         timer += Time.deltaTime;
         timeBar.fillAmount = timer / 400f;
     }

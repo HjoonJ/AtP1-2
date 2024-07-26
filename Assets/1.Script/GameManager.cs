@@ -18,10 +18,10 @@ public class GameManager : MonoBehaviour
 
 
     public int money;
-    const int initIncome = 1; // 현재 수익
+    const int initIncome = 2; // 현재 수익
 
     float moneyIncreaseTimer = 0;
-    const float initMoneyIncreaseTime = 1.5f; // 속도를 높이려면 숫자를 낮춰야함.
+    const float initMoneyIncreaseTime = 1.4f; // 속도를 높이려면 숫자를 낮춰야함.
     float curMoneyIncreaseTime; // 테크를 반영한 시간값
 
     public const float MAX_PARAMETER_VALUE = 100f;
@@ -31,24 +31,23 @@ public class GameManager : MonoBehaviour
     float yearTimer = 0;
     const float yearTime = 4; // one year per seconds
 
-
+    public EndingCanvas endingCanvas; // EndingCanvas를 연결
 
     [SerializeField] int techIndex = 0;
 
     public OpenTechInfo[] natureOpenTechInfos;
     public OpenTechInfo[] humanOpenTechInfos;
 
+    public bool playing;
+    public string[] introTexts;// 
     void Start()
     {
-        StartGame();
+        playing = false;
+        //StartGame();
 
-        
-    }
-    public void StartGame()
-    {
         for (int i = 0; i < natureOpenTechInfos.Length; i++)
-        { 
-            foreach(Button btn in natureOpenTechInfos[i].techButtons)
+        {
+            foreach (Button btn in natureOpenTechInfos[i].techButtons)
             {
                 btn.interactable = false;
             }
@@ -69,6 +68,38 @@ public class GameManager : MonoBehaviour
 
         techIndex = 0;
         OpenTech(techIndex);
+
+        StartCoroutine(CoStartIntro());
+        
+    }
+
+    IEnumerator CoStartIntro()
+    {
+        BubbleCanvas bubbleCanvas = FindObjectOfType<BubbleCanvas>();
+        for (int i = 0; i < introTexts.Length; i++)
+        {
+            string str = introTexts[i];
+            bool endDialogue = false;
+            bubbleCanvas.ShowDialogue(str, () => { 
+                endDialogue = true;
+            });
+
+
+            yield return new WaitUntil(() => endDialogue);
+        }
+        bubbleCanvas.gameObject.SetActive(false);
+        StartCoroutine(FadeEffectCanvas.instance.FadeTo(1, 0));
+        StartCoroutine(FadeEffectCanvas.instance.FadeTo(0, 1));
+        yield return new WaitForSeconds(0.8f);
+        StartGame();
+    }
+
+
+    public void StartGame()
+    {
+        playing=true;
+
+       
 
         StartCoroutine(CoIncreasePollution());
         StartCoroutine(CoDecreaseHappiness());
@@ -119,21 +150,25 @@ public class GameManager : MonoBehaviour
         if (isPollutionLow && !isHappinessHigh)
         {
             Debug.Log("Ending 1: Low Pollution, Low Happiness");
+            endingCanvas.ShowEnd(1);
             // Ending 1 logic
         }
         else if (isPollutionLow && isHappinessHigh)
         {
             Debug.Log("Ending 2: Low Pollution, High Happiness");
+            endingCanvas.ShowEnd(2);
             // Ending 2 logic
         }
         else if (!isPollutionLow && !isHappinessHigh)
         {
             Debug.Log("Ending 3: High Pollution, Low Happiness");
+            endingCanvas.ShowEnd(3);
             // Ending 3 logic
         }
         else if (!isPollutionLow && isHappinessHigh)
         {
             Debug.Log("Ending 4: High Pollution, High Happiness");
+            endingCanvas.ShowEnd(4);
             // Ending 4 logic
         }
     }
@@ -174,8 +209,10 @@ public class GameManager : MonoBehaviour
         }
 
 
-        
-        
+
+        if (playing == false)
+            return;
+
         if (yearTime <= yearTimer)
         {
             NextYear();
@@ -319,11 +356,15 @@ public class GameManager : MonoBehaviour
         // GameOver Ending1 = over Pollution
         if (parameterType == ParameterType.Pollution)
         {
+            Debug.Log("Game Over due to Pollution");
+            endingCanvas.ShowEnd(5); // Pollution으로 인한 게임오버
             //pollutionGameOverPanel.SetActive(true);
         }
         // GameOver Ending1 = under Happiness
         else if (parameterType == ParameterType.Happiness)
         {
+            Debug.Log("Game Over due to Happiness");
+            endingCanvas.ShowEnd(6); // Happiness 감소로 인한 게임오버
             //happinessGameOverPanel.SetActive(true);
         }
     }

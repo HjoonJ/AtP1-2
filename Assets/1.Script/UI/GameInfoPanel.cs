@@ -11,6 +11,6 @@ public class GameInfoPanel : MonoBehaviour
     void Update()
     {
         yearText.text = $"Year {GameManager.instance.currentYear}";
-        moneyText.text = $"{GameManager.instance.money} Money";
+        moneyText.text = $"{GameManager.instance.money} Divine$";
     }
 }
